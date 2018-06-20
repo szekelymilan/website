@@ -25,11 +25,7 @@ div#main-container {
 }
 
 @media only screen and (max-height: 800px) {
-  div#main-container { transform: translate(-50%, -60%); }
-}
-
-@media only screen and (max-height: 650px) {
-  div#main-container { transform: translate(-50%, -55%); }
+  div#main-container { transform: translate(-50%, -52%); }
 }
 
 @keyframes fadein {

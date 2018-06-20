@@ -19,9 +19,17 @@ div#main-container {
   top: 50%;
   width: 300px;
   height: 500px;
-  transform: translate(-50%, -58%);
+  transform: translate(-50%, -70%);
   text-align: center;
   color: white;
+}
+
+@media only screen and (max-height: 800px) {
+  div#main-container { transform: translate(-50%, -60%); }
+}
+
+@media only screen and (max-height: 650px) {
+  div#main-container { transform: translate(-50%, -55%); }
 }
 
 @keyframes fadein {

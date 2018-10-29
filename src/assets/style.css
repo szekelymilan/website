@@ -1,6 +1,6 @@
 ﻿/**
  * Copyright © 2018.
- * szekelymilan.eu belongs to Milan Szekely
+ * szekelymilan.eu belongs to Milan Szekely.
 */
 body {
   margin: 0;
@@ -48,12 +48,6 @@ div#profile-pic img#profile {
   border-radius: 50%;
   left: 50%;
   transform: translateX(-50%);
-  transition: all 0.5s;
-  transition-timing-function: cubic-bezier(.1,1.4,.8,1.4);
-}
-
-div#profile-pic:hover img#profile {
-  width: 120%;
 }
 
 div#main-container h1 {

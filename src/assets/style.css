@@ -11,6 +11,8 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 div#main-container {
@@ -72,7 +74,7 @@ div#main-container h2 {
 span.info {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
-  line-height: 30px;
+  line-height: 32px;
   opacity: 0;
   animation: 1s fadein forwards;
   animation-delay: 1.5s;
@@ -89,7 +91,23 @@ span.info a:hover {
   color: #537f98;
 }
 
+span.info a:hover span.uline {
+  border-color: #537f98;
+}
+
 span.info a:active {
   transition: none !important;
   color: #8fbbd4;
+}
+
+span.info a:active span.uline {
+  transition: none !important;
+  border-color: #8fbbd4;
+}
+
+span.uline {
+  display: inline-block;
+  border-bottom: 1px solid white;
+  line-height: 23px;
+  transition: border-color 0.3s;
 }

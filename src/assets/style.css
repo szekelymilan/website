@@ -13,6 +13,7 @@ body {
   user-select: none;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  text-shadow: 5px 5px 4px black;
 }
 
 div#main-container {
@@ -50,6 +51,7 @@ div#profile-pic img#profile {
   border-radius: 50%;
   left: 50%;
   transform: translateX(-50%);
+  box-shadow: 5px 5px 5px black;
 }
 
 div#main-container h1 {

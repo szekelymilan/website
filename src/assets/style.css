@@ -1,7 +1,13 @@
 ﻿/**
- * Copyright © 2018.
+ * Copyright © 2019.
  * szekelymilan.eu belongs to Milan Szekely.
 */
+
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   background-color: #1c1d17;
@@ -28,12 +34,18 @@ div#main-container {
 }
 
 @media only screen and (max-height: 800px) {
-  div#main-container { transform: translate(-50%, -52%); }
+  div#main-container {
+    transform: translate(-50%, -52%);
+  }
 }
 
 @keyframes fadein {
-  from  { opacity: 0; }
-  to    { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 div#profile-pic {
@@ -55,7 +67,7 @@ div#profile-pic img#profile {
 }
 
 div#main-container h1 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 40px;
   line-height: 35px;
   opacity: 0;
@@ -64,7 +76,7 @@ div#main-container h1 {
 }
 
 div#main-container h2 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 18px;
   line-height: 10px;
   font-weight: normal;
@@ -74,7 +86,7 @@ div#main-container h2 {
 }
 
 span.info {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   line-height: 32px;
   opacity: 0;

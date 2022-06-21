@@ -1,0 +1,16 @@
+version: 2.1
+jobs:
+  deploy:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: Update package lists
+          command: sudo apt-get update
+      - run:
+          name: Install rsync
+          command: sudo apt-get install -qq rsync
+      - run:
+          name: Deploy over SSH using rsync
+          command: chmod +x .circleci/deploy && .circleci/deploy

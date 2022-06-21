@@ -11,6 +11,14 @@ jobs:
       - run:
           name: Install rsync
           command: sudo apt-get install -qq rsync
+      - add_ssh_keys:
+          fingerprints:
+            - "7b:bc:f4:fd:e4:cc:25:ae:a7:8e:35:05:e4:20:15:4c"
       - run:
           name: Deploy over SSH using rsync
           command: chmod +x .circleci/deploy && .circleci/deploy
+
+workflows:
+  deploy:
+    jobs:
+      - deploy

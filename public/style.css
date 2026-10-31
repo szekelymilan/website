@@ -1,0 +1,117 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b0c0e;
+  --surface: #131418;
+  --text: #e8e8ea;
+  --muted: #8b8d94;
+  --line: #23252b;
+  --accent: #7cf2c4;
+  --dim: #4a4d55;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1rem/1.65 Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+#signal {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.wrap { max-width: 780px; margin-inline: auto; padding-inline: 1rem; }
+
+.mono { font-family: var(--mono); }
+.muted { color: var(--muted); }
+.small { font-size: 0.8125rem; }
+.prompt { color: var(--accent); }
+
+/* hero */
+.hero { text-align: center; padding-top: 4rem; padding-bottom: 1rem; }
+.photo { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 1px solid var(--line); }
+h1 { font-size: 2.5rem; font-weight: 600; line-height: 1.1; margin: 1.25rem 0 0.75rem; letter-spacing: -0.02em; }
+.tagline { margin: 0 0 1rem; font-size: 0.9375rem; }
+.caret { color: var(--accent); }
+.hero .small { margin: 0 0 1.25rem; }
+
+.icons { display: flex; justify-content: center; gap: 0.5rem; }
+.icons a { display: grid; place-items: center; width: 44px; height: 44px; color: var(--muted); border: 1px solid var(--line); border-radius: 50%; transition: color 0.2s, border-color 0.2s; }
+.icons a:hover { color: var(--accent); border-color: var(--accent); }
+.icons svg { width: 20px; height: 20px; }
+
+/* sections */
+section { margin-top: 3.5rem; }
+.label { font-size: 0.875rem; font-weight: 400; margin: 0 0 1.25rem; }
+h3 { font-size: 1rem; font-weight: 600; margin: 0; }
+p { margin: 0.25rem 0 0; }
+ul { margin: 0.5rem 0 0; padding-left: 1.1rem; }
+li + li { margin-top: 0.35rem; }
+
+/* rows (timeline entries and award years): mint bar on hover */
+.row, .years > div { padding-left: 1rem; margin-left: -1rem; border-left: 1px solid transparent; transition: border-color 0.2s; color: #c9cacf; }
+.row:hover, .years > div:hover { border-left-color: var(--accent); color: var(--text); }
+
+/* timeline rows */
+.row { padding-block: 0.75rem; }
+.row + .row { margin-top: 0.5rem; }
+.row h3 { color: var(--text); }
+.date { font-size: 0.8125rem; color: var(--muted); margin: 0 0 0.25rem; }
+.date.current { color: var(--accent); }
+
+@media (min-width: 600px) {
+  .row { display: grid; grid-template-columns: 12rem 1fr; gap: 1rem; }
+  .row .date { margin-top: 0.2rem; }
+}
+
+/* awards: year once on the left, items on the right */
+.years { margin: 0; }
+.years > div {
+  display: grid; grid-template-columns: 6.5rem 1fr; padding-block: 0.6rem;
+  background: linear-gradient(var(--line), var(--line)) 1rem 0 / calc(100% - 1rem) 1px no-repeat;
+}
+.years dt { grid-column: 1; grid-row: 1; color: var(--text); font-size: 0.875rem; line-height: 1.65; }
+.years dd { grid-column: 2; margin: 0; }
+.years dd + dd { margin-top: 0.25rem; }
+
+details { margin-top: 1rem; }
+abbr[title] { text-decoration: none; cursor: help; }
+summary { cursor: pointer; color: var(--muted); font-size: 0.875rem; }
+summary:hover { color: var(--accent); }
+details[open] .when-closed, details:not([open]) .when-open { display: none; }
+details h3 { margin: 1.25rem 0 0.5rem; font-weight: 400; }
+
+/* links: quiet underline that turns accent on hover */
+a { color: inherit; text-decoration: none; }
+main a, footer a {
+  text-decoration: underline;
+  text-decoration-color: var(--dim);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  padding: 0.35em 0.2em; margin: -0.35em -0.2em; /* bigger hover area, layout unchanged */
+}
+main a:hover, footer a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+footer { margin-top: 4rem; padding-top: 1.5rem; padding-bottom: 3rem; border-top: 1px solid var(--line); text-align: center; }
+footer p { margin: 0.25rem 0; }
+footer p:last-child { margin-top: 1.25rem; }
+
+/* motion: only when allowed */
+@media (prefers-reduced-motion: no-preference) {
+  .caret { animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .js section, .js footer { opacity: 0; transform: translateY(8px); transition: opacity 0.6s, transform 0.6s; }
+  .js .in { opacity: 1; transform: none; }
+}

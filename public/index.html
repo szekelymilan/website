@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Document -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Hides sections for the scroll reveal; main.js adds "ready", otherwise the class is dropped after 3 s -->
+    <script>document.documentElement.className = 'js'; setTimeout(() => { const h = document.documentElement; h.classList.contains('ready') || h.classList.remove('js'); }, 3000);</script>
+
+    <!-- Page info -->
+    <title>Milán Székely</title>
+    <meta name="description" content="I'm Milán Székely, a Computer Science master's student at ETH Zürich with interests in computer systems, cybersecurity, and quantitative finance.">
+    <meta name="author" content="Milán Székely">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://szekelymilan.eu/">
+
+    <!-- Browser UI -->
+    <meta name="theme-color" content="#0b0c0e">
+    <meta name="color-scheme" content="dark">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://szekelymilan.eu/">
+    <meta property="og:title" content="Milán Székely">
+    <meta property="og:description" content="I'm Milán Székely, a Computer Science master's student at ETH Zürich with interests in computer systems, cybersecurity, and quantitative finance.">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:image" content="https://szekelymilan.eu/profile.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="800">
+    <meta property="og:image:height" content="800">
+    <meta property="og:image:alt" content="Portrait of Milán Székely">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Milán Székely",
+      "alternateName": "Milan Szekely",
+      "url": "https://szekelymilan.eu/",
+      "image": "https://szekelymilan.eu/profile.jpg",
+      "email": "milan@szekelymilan.eu",
+      "affiliation": { "@type": "CollegeOrUniversity", "name": "ETH Zürich" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Delft University of Technology" },
+        { "@type": "HighSchool", "name": "Békásmegyeri Veres Péter Gimnázium" }
+      ],
+      "sameAs": [
+        "https://github.com/szekelymilan",
+        "https://www.linkedin.com/in/szekelymilan"
+      ]
+    }
+    </script>
+
+    <!-- Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src="main.js" defer></script>
+  </head>
+
+  <body>
+    <canvas id="signal" aria-hidden="true"></canvas>
+
+    <header class="wrap hero">
+      <img class="photo" src="profile.jpg" alt="Portrait of Milán Székely" width="180" height="180">
+      <h1>Milán Székely</h1>
+      <p class="tagline mono"><span class="prompt">&gt;</span> <span id="typed">MSc Computer Science @ ETH Zürich</span><span class="caret" aria-hidden="true">_</span></p>
+      <p class="mono muted small">Zürich, Switzerland</p>
+      <!-- Icons: GitHub and LinkedIn from Simple Icons (CC0), mail from Lucide (ISC) -->
+      <nav class="icons" aria-label="Social links">
+        <a href="https://github.com/szekelymilan" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/szekelymilan" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:milan@szekelymilan.eu" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="wrap">
+      <section aria-labelledby="about">
+        <h2 id="about" class="label mono"><span class="prompt">&gt;</span> About</h2>
+        <p>I'm a Computer Science master's student at ETH Zürich, following a bachelor's at TU Delft with a minor in Finance. I co-founded a small quantitative trading company, where I build automated trading systems. Before university, I spent several years competing in national and international programming and mathematics olympiads.</p>
+        <p>Outside of work and university, I collect vinyl records and CDs, play the guitar, and enjoy karting and sim racing. You can explore my music collection on <a href="https://www.discogs.com/user/szekelymilan/collection">Discogs</a>.</p>
+      </section>
+
+      <section aria-labelledby="education">
+        <h2 id="education" class="label mono"><span class="prompt">&gt;</span> Education</h2>
+
+        <div class="row">
+          <p class="date mono current">2026 &ndash; 2028 (expected)</p>
+          <div>
+            <h3>ETH Zürich</h3>
+            <p>Master of Science, Computer Science</p>
+            <p>Major: Secure and Reliable Systems</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <p class="date mono">2023 &ndash; 2026</p>
+          <div>
+            <h3>Delft University of Technology</h3>
+            <p>Bachelor of Science, Computer Science and Engineering</p>
+            <p>Minor: Finance</p>
+            <p>GPA: 9.22/10</p>
+            <p>Thesis: <a href="http://resolver.tudelft.nl/uuid:8b02d05f-47ce-4d75-9f23-c64fae4b3f5f">Lightweight Distance and Relative Radial Velocity Estimation with a Passive RF Receiver</a></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <p class="date mono">2015 &ndash; 2023</p>
+          <div>
+            <h3>Békásmegyeri Veres Péter Gimnázium</h3>
+            <p class="muted">Budapest, Hungary</p>
+            <p>Hungarian Matura</p>
+            <p>100% in both the advanced-level Mathematics and Informatics exams</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="experience">
+        <h2 id="experience" class="label mono"><span class="prompt">&gt;</span> Experience</h2>
+
+        <div class="row">
+          <p class="date mono current">Jun 2025 &ndash; present</p>
+          <div>
+            <h3>CSZ Quantitative LLC</h3>
+            <p class="muted">Co-Founder &amp; Technical Lead &middot; United States (Remote)</p>
+            <ul>
+              <li>Co-founded a small quantitative trading company focused on automated trading strategies.</li>
+              <li>Built a Python trading system with a backtesting framework and production infrastructure for fully automated live trading and real-time monitoring.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <p class="date mono">Apr &ndash; Jul 2025</p>
+          <div>
+            <h3>Ministry of Defence</h3>
+            <p class="muted">Software Developer Intern &middot; Netherlands</p>
+            <ul>
+              <li>Led backend development of a skills management tool in a team of five, using TypeScript and PostgreSQL.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <p class="date mono">Mar 2019 &ndash; Aug 2026</p>
+          <div>
+            <h3>Get Tested International AB</h3>
+            <p class="muted">Software Developer &middot; Sweden (Remote)</p>
+            <ul>
+              <li>Designed, built, and operated a patient portal using TypeScript, React, Angular, and MongoDB, serving over 40,000 users and integrating with more than 10 laboratories and logistics partners.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="awards">
+        <h2 id="awards" class="label mono"><span class="prompt">&gt;</span> Competitions &amp; Awards</h2>
+
+        <dl class="years">
+          <div>
+            <dt class="mono">2024</dt>
+            <dd>KIVI Incentive Prize</dd>
+          </div>
+          <div>
+            <dt class="mono">2022&ndash;2023</dt>
+            <dd>6th and 8th place, <abbr title="National Secondary School Competition (Országos Középiskolai Tanulmányi Verseny)">OKTV</abbr> Informatics (Category II)</dd>
+          </div>
+          <div>
+            <dt class="mono">2021</dt>
+            <dd>Bronze medal, International Informatics Olympiad in Teams</dd>
+          </div>
+          <div>
+            <dt class="mono">2018&ndash;2021</dt>
+            <dd>Two 1st-place and two 2nd-place finishes, Nemes Tihamér Programming Competition</dd>
+          </div>
+          <div>
+            <dt class="mono">2019&ndash;2020</dt>
+            <dd>Represented Hungary at three international informatics olympiads</dd>
+          </div>
+          <div>
+            <dt class="mono">2019</dt>
+            <dd>Bronze medal, Hanoi Open Mathematics Competition</dd>
+          </div>
+        </dl>
+
+        <details>
+          <summary class="mono"><span class="when-closed">Show all</span><span class="when-open">Show less</span></summary>
+
+          <h3 class="mono muted small">Computer Science</h3>
+          <dl class="years">
+            <div>
+              <dt class="mono">2024</dt>
+              <dd>17th place, Delft Algorithm Programming Contest</dd>
+            </div>
+            <div>
+              <dt class="mono">2023</dt>
+              <dd>13th place, Delft Algorithm Programming Contest</dd>
+              <dd>6th place, <abbr title="National Secondary School Competition (Országos Középiskolai Tanulmányi Verseny)">OKTV</abbr> Informatics (Category II)</dd>
+            </div>
+            <div>
+              <dt class="mono">2022</dt>
+              <dd>8th place, <abbr title="National Secondary School Competition (Országos Középiskolai Tanulmányi Verseny)">OKTV</abbr> Informatics (Category II)</dd>
+            </div>
+            <div>
+              <dt class="mono">2021</dt>
+              <dd>2nd place, Nemes Tihamér Programming Competition</dd>
+              <dd>Bronze medal, International Informatics Olympiad in Teams</dd>
+            </div>
+            <div>
+              <dt class="mono">2020</dt>
+              <dd>2nd place, Nemes Tihamér Programming Competition</dd>
+              <dd>52nd place, Central European Olympiad in Informatics</dd>
+              <dd>114th place, Romanian Master of Informatics</dd>
+            </div>
+            <div>
+              <dt class="mono">2019</dt>
+              <dd>1st place, Nemes Tihamér Programming Competition</dd>
+              <dd>52nd place, European Junior Olympiad in Informatics</dd>
+            </div>
+            <div>
+              <dt class="mono">2018</dt>
+              <dd>1st place, Nemes Tihamér Programming Competition</dd>
+            </div>
+          </dl>
+
+          <h3 class="mono muted small">Mathematics</h3>
+          <dl class="years">
+            <div>
+              <dt class="mono">2023</dt>
+              <dd>15th place, <abbr title="National Secondary School Competition (Országos Középiskolai Tanulmányi Verseny)">OKTV</abbr> Mathematics (Category II)</dd>
+              <dd>5th place internationally (3rd in Hungary), Náboj Math</dd>
+            </div>
+            <div>
+              <dt class="mono">2022</dt>
+              <dd>22nd place, <abbr title="National Secondary School Competition (Országos Középiskolai Tanulmányi Verseny)">OKTV</abbr> Mathematics (Category II)</dd>
+              <dd>47th place internationally (4th in Hungary), Náboj Math</dd>
+            </div>
+            <div>
+              <dt class="mono">2021</dt>
+              <dd>12th place, Arany Dániel Mathematics Competition</dd>
+              <dd>11th place, Zrínyi Ilona Mathematics Competition</dd>
+              <dd>2nd place, Bolyai Mathematics Team Competition</dd>
+              <dd>3rd place internationally (2nd in Hungary), Náboj Math</dd>
+            </div>
+            <div>
+              <dt class="mono">2020</dt>
+              <dd>13th place, Arany Dániel Mathematics Competition</dd>
+              <dd>4th place, Bolyai Mathematics Team Competition</dd>
+            </div>
+            <div>
+              <dt class="mono">2019</dt>
+              <dd>Bronze medal, Hanoi Open Mathematics Competition</dd>
+              <dd>19th place, Varga Tamás Mathematics Competition</dd>
+            </div>
+          </dl>
+
+          <h3 class="mono muted small">Physics</h3>
+          <dl class="years">
+            <div>
+              <dt class="mono">2020</dt>
+              <dd>11th place, Mikola Sándor Physics Competition</dd>
+            </div>
+            <div>
+              <dt class="mono">2019</dt>
+              <dd>27th place, Öveges József Physics Competition</dd>
+            </div>
+          </dl>
+
+          <h3 class="mono muted small">Scholarships &amp; Awards</h3>
+          <dl class="years">
+            <div>
+              <dt class="mono">2024</dt>
+              <dd>KIVI Incentive Prize</dd>
+            </div>
+            <div>
+              <dt class="mono">2023</dt>
+              <dd>Ars Informatica Award, Békásmegyeri Veres Péter Gimnázium</dd>
+              <dd>Ars Mathematica Award, Békásmegyeri Veres Péter Gimnázium</dd>
+            </div>
+            <div>
+              <dt class="mono">2022</dt>
+              <dd>National Scholarship for Young Talents (NTP-NFTÖ-22)</dd>
+            </div>
+            <div>
+              <dt class="mono">2021</dt>
+              <dd>National Scholarship for Young Talents (NTP-NFTÖ-21)</dd>
+            </div>
+          </dl>
+        </details>
+      </section>
+    </main>
+
+    <footer class="wrap">
+      <p class="mono"><span class="prompt">&gt;</span> Get in touch: <a href="mailto:milan@szekelymilan.eu">milan@szekelymilan.eu</a></p>
+      <p class="muted small">Hungarian (native) &middot; English (C1)</p>
+      <p class="muted small">© 2026 Milán Székely</p>
+    </footer>
+  </body>
+</html>
